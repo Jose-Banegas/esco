@@ -1,0 +1,24 @@
+<%- include('../views/partials/head.ejs'); %>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-12">
+            <h2 class="h2 text-center">Hubo un error del cliente. Ve a incio</h2>
+
+            <div class="error d-flex justify-content-center alert alert-danger" role="alert">
+
+                <h3 class="h3"><%= err.message %> </h3>
+                
+                <p class="lead"><%= err.stack %> </p>
+                
+                <a class="btn btn-sucess p-3" href="/">Volver</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+<%- include('../views/partials/footer.ejs'); %>
+

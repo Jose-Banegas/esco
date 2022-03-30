@@ -1,0 +1,71 @@
+<%- include('../partials/headerAdm.ejs'); %>
+
+  
+<div class="container">
+
+  <h3 class="text-center" > Caja administrador</h3>
+  <div class="buscar-producto">   
+      <form id="formSearch" >
+          <label for="buscarproducto">ESCANEE EL CODIGO DEL PRODUCTO</label>
+          <input  type="text" id="inputBuscar" name="buscar" autofocus required>
+          <button class="btn btn-outline-success" type="submit">Agregar producto a la compra</button>
+      </form>                
+  </div>              
+  <h2>primera compra</h2>
+ <div class="row">
+     <div class="col-8">
+      <table class="table">
+          <thead>
+            <tr>
+  
+    
+              <th scope="col">Nombre</th>
+              <th scope="col">Precio Minorista</th>
+
+              <th scope="col">Marca</th>
+              <th scope="col">Cantidad</th>
+    
+    
+    
+            </tr>
+          </thead>
+          <tbody class="tableBody">
+            
+           
+      
+            
+               
+    
+    
+    
+    
+    
+          </tbody>
+        </table>
+     </div>
+     <div class="col-4">
+          <div class="row">
+              <div class="col-12"></div>
+              <div class="col-12"></div>
+              <div class="col-12"></div>
+              <div class="col-12"></div>
+          </div>
+     </div>
+ </div>
+
+  <!-- <form action="">
+  
+  
+      <button type="submit"></button>
+  </form> -->
+   
+
+   
+</div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script  src="app.js"></script>
+
+  <%- include('../partials/footer.ejs'); %>

@@ -1,0 +1,125 @@
+<%- include('../partials/headerAdm.ejs'); %>
+
+
+
+<div class="container">
+  
+</div>
+
+ 
+
+  <div class="container">
+    <H3>Gestión de STOCK  </H1>
+    <div class="row">
+      <div class="col-12">
+         <table class="table">
+        <thead>
+          <tr>
+
+            <th scope="col">Precio Minorista</th>
+            <th scope="col">Precio Mayorista</th>
+  
+            <th scope="col">Nombre</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Cantidad</th>
+  
+            <th scope="col">Categoria Int</th>
+            <th scope="col">Presentacion</th>
+            <th scope="col">Peso</th>
+            <th scope="col">Fecha Venc</th>
+  
+            <th scope="col">Precio costo</th>
+  
+            <th scope="col">Imp Aplicado</th>
+            <th scope="col">Acciones</th>
+  
+  
+          </tr>
+        </thead>
+        <tbody>
+          <% for (let producto of productos){ %>
+            <tr>
+              <td class="d-lg-none">
+                <ul class=" productosAcciones d-flex justify-content-around">
+                  
+                  <li>
+                    <a class="" href="/administrador/productos/<%= producto._id %>/edit "><img width="32px" height="32px" src="/imgs/png/contract.png" alt=""></a>
+                  </li>
+                  <li>
+                    <a class=" d-flex" href="/administrador/productos/<%= producto._id %>/edit/precio "><img width="36px" src="/imgs/png/tag.png" alt=""></a>
+
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <%= producto.precioMinorista %>
+              </td>
+              <td>
+                <%= producto.precioMayorista %>
+              </td>
+  
+              <td>
+                <%= producto.nombre %>
+              </td>
+              <td>
+                <%= producto.marca %>
+              </td>
+  
+              <td>
+                <%= producto.cantidad %>
+              </td>
+              <td>
+                <%= producto.categoriaInterna %>
+              </td>
+              <td>
+                <%= producto.presentacion %>
+              </td>
+              <td>
+                <%= producto.peso %>
+              </td>
+              <td>
+                <%= producto.fechaDeVencimiento%>
+              </td>
+  
+              <td>
+                <%= producto.precioCosto %>
+              </td>
+  
+              <td>
+                <%= producto.impuestoAplicado %>
+              </td>
+              
+              <td class="d-none d-lg-block">
+                <ul class=" productosAcciones d-flex justify-content-around">
+                  
+                  <li>
+                    <a class="" href="/administrador/productos/<%= producto._id %>/edit "><img width="32px" height="32px" src="/imgs/png/contract.png" alt=""></a>
+                  </li>
+                  <li>
+                    <a class=" " href="/administrador/productos/<%= producto._id %>/edit/precio "><img width="36px" src="/imgs/png/tag.png" alt=""></a>
+
+                  </li>
+                </ul>
+              </td>
+  
+  
+  
+  
+            </tr>
+            <%} %>
+  
+  
+  
+        </tbody>
+      </table>
+    </div>
+    </div>
+   
+
+
+
+   
+      
+  </div>
+
+  <%- include('../partials/footer.ejs'); %>

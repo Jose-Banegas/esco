@@ -1,0 +1,132 @@
+/* Columna Izq */
+
+.columI {
+	border-right: solid 3px black;
+}
+
+.inputBuscar {
+	background-color: #c4c4c4;
+	border: none;
+	border-radius: 35px;
+	padding: .4rem;
+	padding-left: 2rem;
+	width: 60%;
+	font-size: 25px;
+	
+	
+}
+
+.inputBuscar::placeholder {
+
+	text-align: center;
+	color: #909090;
+}
+
+.btnBuscar {
+	border: none;
+	border-radius: 35px;
+	background-color: #c4c4c4;
+	padding: 0 1rem;
+	text-transform: uppercase;
+}
+
+.filaB {
+	height: 100%;
+	min-height: 450px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+} 
+
+
+table {
+	border-top: solid 2px #000000;
+	width: 100%;
+	font-size: 18px;
+	font-weight: 300;
+	height: 100%;
+}
+
+.thNombre {
+	width: 30%;
+}
+
+.boxPrecioContainer {
+	width: 100%;
+	display: flex;
+	justify-content: right;
+	align-items: end;
+}
+
+.boxPrecio {
+	padding: 2rem;
+	border: solid 2px #1B4EA3;
+	border-radius: 13px 0 0 13px;
+	width: 418px;
+	height: 95px;
+
+}
+
+.boxPrecio p {
+	font-size: 24px;
+	text-transform: uppercase;
+	margin-bottom: 0;
+}
+
+.btnContainer {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 1rem;
+	margin-right: 1rem;
+}
+
+.btnFunc {
+	height: 100%;
+	padding: 1rem;
+	border-radius: 8px;
+	border: none;
+	background-color: #c4c4c4;
+	cursor: pointer;
+	text-align: center;
+	
+
+}
+
+/* Columna Der */
+
+.columD {
+}
+
+.filaDSup {
+
+	
+}
+
+.emptyBtn {
+	width: 80%;
+	height: 50px;
+	background-color: #c4c4c4;
+	margin: 0 auto;
+	margin-bottom: 2rem;
+}
+
+.subt {
+	margin-left: .5rem;
+	font-size: 1.3rem;
+}
+
+.boxDinero {
+	display: flex;
+	align-items: center;
+	gap: .5rem;
+	margin-bottom: .5rem;
+}
+.boxDinero input {
+	padding: 1rem;
+	width: 100%;
+}
+
+.boxDinero p {
+	font-size: 1.8rem;
+	margin-left: 1rem;
+}
