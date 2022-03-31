@@ -9,7 +9,7 @@ const User = require('../models/usuario');
 const passport = require('passport');
 
 
-const roleADM = 'ADMINISTRADOR'
+const roleADM = 'ADMINISTRADOR';
 
 
 // RENDER VER TABLA DE STOCK
@@ -122,6 +122,19 @@ router.post('/buscar', isLoggedIn,isAdmin(roleADM), async(req,res)=>{
   } catch (error) {
       res.send('error')
   }
+})
+
+router.post('/buscar-codigo', isLoggedIn, async (req, res) => {
+  try {
+    const codigo = req.body.codigo;
+    console.log(codigo);
+     const producto = await Producto.findOne({codigo: codigo });
+    res.json(producto);    
+  } catch (error) {
+      res.send('error')
+  } 
+
+
 })
 
 

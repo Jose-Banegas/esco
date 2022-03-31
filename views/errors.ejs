@@ -2,18 +2,20 @@
 
 <div class="container">
 
-    <div class="row">
+    <div class="row justify-content-center">
         <div class="col-12">
             <h2 class="h2 text-center">Hubo un error del cliente. Ve a incio</h2>
 
-            <div class="error d-flex justify-content-center alert alert-danger" role="alert">
+            <div class="error  alert alert-danger" role="alert">
 
-                <h3 class="h3"><%= err.message %> </h3>
+                <h3 class="h3">Hubo un error </h3>
                 
-                <p class="lead"><%= err.stack %> </p>
-                
-                <a class="btn btn-sucess p-3" href="/">Volver</a>
+                <% if(currentRole=='ADMINISTRADOR'){ %> 
+                <a class="btn btn-sucess p-3" href="/administrador">Volver al ADM</a>
+                <% } else{ %> 
+                    <a class="btn btn-sucess p-3" href="/caja">Volver a la caja</a>
 
+                <% } %> 
             </div>
         </div>
     </div>

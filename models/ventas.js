@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
+const Usuario = require('./usuario')
 // fecha de salida
 const ventasEfectuadasSchema = new Schema ({
     dineroIngresado:{
@@ -18,18 +19,20 @@ const ventasEfectuadasSchema = new Schema ({
         String
     },
     ticket: {
-        type: String,
-        enum:['Si', 'No']
+        type: Boolean,
+        
 
     },
 
     cantidadDeProductosTotales: {
        type: Number
     },
-    cajera:{
-        type: String,
-        
-    }
+    usuarioEnCaja:[
+        {
+            type: Schema.Types.ObjectId,
+            ref: Usuario
+        }
+    ]
 
 });     
 

@@ -5,8 +5,9 @@ const catchAsync =require('../utils/catchAsync');
 const Producto = require('../models/productos');
 const Venta = require('../models/ventas');
 
-const {isLoggedIn,isAdmin} = require('../middleware');
+const {isLoggedIn,isCaja} = require('../middleware');
 
+const rolecAJA= 'CAJA';
 
 
 
@@ -15,18 +16,18 @@ const {isLoggedIn,isAdmin} = require('../middleware');
 
 
 // RENDER VER TABLA DE STOCK
-router.get('/', isLoggedIn, async (req, res) => {
+router.get('/', isLoggedIn, isCaja(rolecAJA),async (req, res) => {
 
   res.render('caja/cajainicio');
 
 })
-router.get('/cajacobro', isLoggedIn,async (req, res) => {
+router.get('/cajacobro', isLoggedIn,isCaja(rolecAJA),async (req, res) => {
 
   res.render('caja/cajacobro');
 
 })
 
-router.post('/buscar', isLoggedIn, async (req, res) => {
+router.post('/buscar', isLoggedIn,isCaja(rolecAJA), async (req, res) => {
   try {
     const codigo = req.body.codigo;
     console.log(codigo);
@@ -39,7 +40,7 @@ router.post('/buscar', isLoggedIn, async (req, res) => {
 
 })
 
-router.post('/finalizar-compra', async (req, res) => {
+router.post('/finalizar-compra', isLoggedIn, async (req, res) => {
     const {compraFinalizada} = req.body;
     const producto = await Producto.findOne({codigo: codigoInput})
     
@@ -51,7 +52,7 @@ router.post('/finalizar-compra', async (req, res) => {
 
 // ENVIAR DATOS DEL FORMULARIO A LA BBDD
 
-router.post('/', catchAsync( async (req,res)=>{
+router.post('/',isLoggedIn, catchAsync( async (req,res)=>{
  const nuevoProducto = new Producto (req.body);
  await nuevoProducto.save();
   res.redirect(`/administrador/productos/${nuevoProducto._id}`)

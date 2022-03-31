@@ -61,6 +61,10 @@ nav {
   list-style: none;
 }
 
+.editButton {
+  width: 32px;
+}
+
 .cargarproductosform .campo-requerido {
   padding-left: 12px;
   border-left: 2px solid green;

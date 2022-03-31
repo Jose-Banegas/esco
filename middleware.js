@@ -23,9 +23,9 @@ module.exports.isAdmin = (role)=>{
     
 } 
 
-module.exports.isCaja = (role)=>{
+module.exports.isCaja = (role1)=>{
     return (req, res, next) => {
-         if ( req.user.funcion !== role) {
+         if ( req.user.funcion !== role1) {
              req.flash('error', 'Tiene que ingresar como cajer@');
              return res.redirect(`/ingresar`);
          }
@@ -36,24 +36,3 @@ module.exports.isCaja = (role)=>{
  } 
 
 
-module.exports.checkearRole = (req, res, next)=>{
-        if(!req.user.funcion){
-            req.flash('error', 'Tiene que ingresar con algun ROL');
-            return res.redirect(`/ingresar`);
-        }
-
-
-        next();
-}
-
-module.exports.logCaja = (req, res, next)=>{
-
-
-    if(req.user.funcion == "CAJA"){
-        console.log('Haz inicio como', req.user.funcion)
-
-        req.flash('sucess', 'Bienvenido a la sesión Cajer@');
-        return res.redirect(`/caja`);   
-     }  
-    next()
-}
