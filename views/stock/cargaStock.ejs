@@ -14,7 +14,7 @@
         <div class="mb-3 d-flex">
             <label for="codigo" class="campo-requerido form-label">Codigo de barra del producto</label>
             <span class="input-group-text">|||||||</span>
-            <input type="number" name="codigo" class="form-control" id="codigo" autofocus placeholder="Ingresar el codigo de barra del producto" required>
+            <input  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="number" name="codigo" class="form-control" id="codigo" autofocus placeholder="Ingresar el codigo de barra del producto" required>
             <div  class="form-text text-center">Ingresar solo Números</div>
 
           </div>
@@ -30,7 +30,7 @@
             <label for="cantidad" class="campo-requerido form-label">Cantidad de productos </label>
             <span class="input-group-text"><img src="/imgs/svg/stock.svg" alt=""></span>
 
-            <input type="number" name="cantidad" class="form-control" id="cantidad" placeholder="Ingresar la cantidad de producto" required>
+            <input  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="number" name="cantidad" class="form-control" id="cantidad" placeholder="Ingresar la cantidad de producto" required>
             <div  class="form-text text-center">Ingresar solo Números</div>
 
           </div>
@@ -46,7 +46,7 @@
             <label for="precioMinorista" class="campo-requerido form-label">Precio minorista del producto </label>
             <span class="input-group-text"><img src="/imgs/svg/precioicon.svg" alt=""></span>
 
-            <input type="number" name="precioMinorista" class="form-control" id="precioMinorista" placeholder="Ingresar el precio minorista del producto" required>
+            <input  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="number" name="precioMinorista" class="form-control" id="precioMinorista" placeholder="Ingresar el precio minorista del producto" required>
             <div  class="form-text text-center">Ingresar solo Números</div>
 
           </div>
@@ -55,7 +55,7 @@
             <label for="precioMayorista" class="campo-requerido form-label">Precio mayorista del producto </label>
             <span class="input-group-text"><img src="/imgs/svg/precioicon.svg" alt=""></span>
 
-            <input type="number" name="precioMayorista" class="form-control" id="precioMayorista" placeholder="Ingresar el precio mayorista del producto" required>
+            <input  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="number" name="precioMayorista" class="form-control" id="precioMayorista" placeholder="Ingresar el precio mayorista del producto" required>
             <div  class="form-text text-center">Ingresar solo Números</div>
 
           </div>
@@ -64,7 +64,7 @@
             <label for="precioCosto" class="campo-requerido form-label">Precio costo del producto </label>
             <span class="input-group-text"><img src="/imgs/svg/precioicon.svg" alt=""></span>
 
-            <input type="number" name="precioCosto" class="form-control" id="precioCosto" placeholder="Ingresar el precio costo del producto" required>
+            <input  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="number" name="precioCosto" class="form-control" id="precioCosto" placeholder="Ingresar el precio costo del producto" required>
             <div  class="form-text text-center">Ingresar solo Números</div>
 
           </div>
@@ -73,7 +73,7 @@
           <div class="mb-3 d-flex">
             <label for="peso" class="form-label">Peso en KG O GRMOS del producto </label>
 
-            <input type="number" name="peso" class="form-control" id="peso" placeholder="'Introducir el peso en kilogramos o gramos" >
+            <input  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="number" name="peso" class="form-control" id="peso" placeholder="'Introducir el peso en kilogramos o gramos" >
             <div  class="form-text text-center">Ingresar solo Números</div>
 
           </div>
@@ -82,7 +82,7 @@
             <label for="fechaVenc" class="form-label">Fecha de vencimiento del producto </label>
             <span class="input-group-text"><img src="/imgs/svg/fechavenc.svg" alt=""></span>
 
-            <input type="text" name="fechaVenc" class="form-control" id="fechaVenc" placeholder="Introducir la fecha de Vencimiento del producto  " >
+            <input type="date" name="fechaVenc" class="form-control" id="fechaVenc" placeholder="Introducir la fecha de Vencimiento del producto  " >
           </div>
     
           <div class="mb-3 d-flex">

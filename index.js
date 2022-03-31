@@ -103,9 +103,31 @@ app.use((req, res, next) => {
   next();
 })
 
-app.get('/fakeUser', async( req, res)=>{
-  const usuario = new User({funcion:'ADMINISTRADOR', username:'ramiro'});
-  const nuevoUsuario = await User.register(usuario,'ramiro')
+app.get('/crearAdmin1', async( req, res)=>{
+  const usuario = new User({funcion:'ADMINISTRADOR', username:'escososa'});
+  const nuevoUsuario = await User.register(usuario,'admescososa2022');
+
+  console.log(nuevoUsuario);
+  res.send(nuevoUsuario)
+})
+app.get('/crearAdmin2', async( req, res)=>{
+  const usuario = new User({funcion:'ADMINISTRADOR', username:'yaelsosa'});
+  const nuevoUsuario = await User.register(usuario,'admyael2022')
+
+  console.log(nuevoUsuario);
+  res.send(nuevoUsuario)
+})
+app.get('/crearAdmin3', async( req, res)=>{
+  const usuario = new User({funcion:'ADMINISTRADOR', username:'francososa'});
+  const nuevoUsuario = await User.register(usuario,'admfranco2022')
+
+  console.log(nuevoUsuario);
+  res.send(nuevoUsuario)
+})
+
+app.get('/crearCaja4', async( req, res)=>{
+  const usuario = new User({funcion:'CAJA', username:'cajaescososa'});
+  const nuevoUsuario = await User.register(usuario,'cajaescososa2022')
 
   console.log(nuevoUsuario);
   res.send(nuevoUsuario)
@@ -137,10 +159,9 @@ app.all('*', (req, res, next) => {
 app.use(function (err, req, res, next) {
   const { statusCode = 500 } = err;
   console.log(err);
-  if(req.user){
     let currentRole = req.user.funcion ;
-    return currentRole
-  } 
+     
+  
 
     if (!err.message) err.message = 'Algo salio mal!'
   res.status(statusCode).render('errors', { currentRole })
