@@ -14,7 +14,7 @@ module.exports.isLoggedIn = (req, res, next) => {
 module.exports.isAdmin = (role)=>{
    return (req, res, next) => {
         if ( req.user.funcion !== role) {
-            req.flash('error', 'Tiene que ingresar como administrador');
+            req.flash('error', 'Lugar equivocado');
             return res.redirect(`/ingresar`);
         }
         next();

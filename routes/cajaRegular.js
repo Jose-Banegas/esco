@@ -10,24 +10,26 @@ const {isLoggedIn,isCaja} = require('../middleware');
 const rolecAJA= 'CAJA';
 
 
-
+// isCaja(rolecAJA)
+// isCaja(rolecAJA)
+// isCaja(rolecAJA)
 
 // READ PRODUCT {
 
 
 // RENDER VER TABLA DE STOCK
-router.get('/', isLoggedIn, isCaja(rolecAJA),async (req, res) => {
+router.get('/', isLoggedIn,async (req, res) => {
 
   res.render('caja/cajainicio');
 
 })
-router.get('/cajacobro', isLoggedIn,isCaja(rolecAJA),async (req, res) => {
+router.get('/cajacobro', isLoggedIn,async (req, res) => {
 
   res.render('caja/cajacobro');
 
 })
 
-router.post('/buscar', isLoggedIn,isCaja(rolecAJA), async (req, res) => {
+router.post('/buscar', isLoggedIn, async (req, res) => {
   try {
     const codigo = req.body.codigo;
     console.log(codigo);

@@ -27,9 +27,9 @@ const keyCodes = () => {
     const query_buscar = formSearch.elements.buscar.value;
     try {
       
-      const res = await axios.post('/administrador/productos/buscar', {buscar: query_buscar }); 
+      const res = await axios.post('/administrador/buscar', {buscar: query_buscar }); 
       const productos = res.data;
-
+      
       console.log(productos);  
 
       for (let producto of productos){

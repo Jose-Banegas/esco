@@ -59,12 +59,9 @@ const productSchema = new Schema({
   cantidadDeVecesVendido: {
     type: Number
   },
-  ofertaVigente: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: Oferta
-    }
-  ]
+  ofertaVigente:{ 
+    type: Boolean
+  }
 })
 
 const Producto = mongoose.model('Producto', productSchema);

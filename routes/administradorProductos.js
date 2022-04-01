@@ -3,10 +3,8 @@ const router = express.Router();
 const catchAsync = require('../utils/catchAsync');
 const {isLoggedIn,isAdmin} = require('../middleware');
 const Producto = require('../models/productos');
-const User = require('../models/usuario');
 
 
-const passport = require('passport');
 
 
 const roleADM = 'ADMINISTRADOR';
@@ -100,43 +98,6 @@ router.delete('/:id',isLoggedIn,isAdmin(roleADM), catchAsync(async (req, res) =>
 }
   res.redirect('/administrador/productos');
 }))
-
-
-router.post('/buscar', isLoggedIn,isAdmin(roleADM), async(req,res)=>{
-  const query = req.body.buscar;
-  console.log(query);
-  try {
-
-      const productos = await Producto.find({
-         $or:[
-           {nombre:{$regex: query}},
-           {marca:{$regex: query}},
-
-         ]
-           });
-
-
-           console.log(productos);
-           res.json(productos)
-
-  } catch (error) {
-      res.send('error')
-  }
-})
-
-router.post('/buscar-codigo', isLoggedIn, async (req, res) => {
-  try {
-    const codigo = req.body.codigo;
-    console.log(codigo);
-     const producto = await Producto.findOne({codigo: codigo });
-    res.json(producto);    
-  } catch (error) {
-      res.send('error')
-  } 
-
-
-})
-
 
 
 

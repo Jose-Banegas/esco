@@ -61,4 +61,50 @@ router.get('/cerrar-sesion', (req,res)=>{
 
 
 
+// app.get('/crearAdmin1', async( req, res)=>{
+//   const usuario = new User({funcion:'ADMINISTRADOR', username:'escososa'});
+//   const nuevoUsuario = await User.register(usuario,'admescososa2022');
+
+//   console.log(nuevoUsuario);
+//   res.send(nuevoUsuario)
+// })
+// app.get('/crearAdmin2', async( req, res)=>{
+//   const usuario = new User({funcion:'ADMINISTRADOR', username:'yaelsosa'});
+//   const nuevoUsuario = await User.register(usuario,'admyael2022')
+
+//   console.log(nuevoUsuario);
+//   res.send(nuevoUsuario)
+// })
+// app.get('/crearAdmin3', async( req, res)=>{
+//   const usuario = new User({funcion:'ADMINISTRADOR', username:'francososa'});
+//   const nuevoUsuario = await User.register(usuario,'admfranco2022')
+
+//   console.log(nuevoUsuario);
+//   res.send(nuevoUsuario)
+// })
+
+// app.get('/crearCaja4', async( req, res)=>{
+//   const usuario = new User({funcion:'CAJA', username:'cajaescososa'});
+//   const nuevoUsuario = await User.register(usuario,'cajaescososa2022')
+
+//   console.log(nuevoUsuario);
+//   res.send(nuevoUsuario)
+// })
+
+// app.get('/crearAdmin2', async( req, res)=>{
+//   const usuario = new User({funcion:'ADMINISTRADOR', username:'yaelsosa'});
+//   const nuevoUsuario = await User.register(usuario,'admyael2022')
+
+//   console.log(nuevoUsuario);
+//   res.send(nuevoUsuario)
+// })
+// app.get('/crearcaja', async( req, res)=>{
+//   const usuario = new User({funcion:'ADMINISTRADOR', username:'123'});
+//   const nuevoUsuario = await User.register(usuario,'123')
+
+//   console.log(nuevoUsuario);
+//   res.send('nuevoUsuario')
+// })
+
+
 module.exports = router;

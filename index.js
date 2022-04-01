@@ -60,11 +60,13 @@ const sessionConfig = {
 // sessionMiddleware
 app.use(session(sessionConfig)); 
 
-
-const administradorProductosRoutes =require('./routes/administrador');
 const cajaRoutes= require('./routes/cajaRegular')
-const buscarProdRoutes= require('./routes/buscarProd')
 const loginRoutes = require('./routes/usuarios')
+const administradorProductosRoutes =require('./routes/administradorProductos');
+const administradorBuscarRoutes =require('./routes/administradorBuscar');
+const administradorOfertasRoutes =require('./routes/administradorOfertas');
+
+
 
 // const stockRoutes = require('./routes/stock')
 
@@ -103,45 +105,19 @@ app.use((req, res, next) => {
   next();
 })
 
-app.get('/crearAdmin1', async( req, res)=>{
-  const usuario = new User({funcion:'ADMINISTRADOR', username:'escososa'});
-  const nuevoUsuario = await User.register(usuario,'admescososa2022');
 
-  console.log(nuevoUsuario);
-  res.send(nuevoUsuario)
-})
-app.get('/crearAdmin2', async( req, res)=>{
-  const usuario = new User({funcion:'ADMINISTRADOR', username:'yaelsosa'});
-  const nuevoUsuario = await User.register(usuario,'admyael2022')
 
-  console.log(nuevoUsuario);
-  res.send(nuevoUsuario)
-})
-app.get('/crearAdmin3', async( req, res)=>{
-  const usuario = new User({funcion:'ADMINISTRADOR', username:'francososa'});
-  const nuevoUsuario = await User.register(usuario,'admfranco2022')
-
-  console.log(nuevoUsuario);
-  res.send(nuevoUsuario)
-})
-
-app.get('/crearCaja4', async( req, res)=>{
-  const usuario = new User({funcion:'CAJA', username:'cajaescososa'});
-  const nuevoUsuario = await User.register(usuario,'cajaescososa2022')
-
-  console.log(nuevoUsuario);
-  res.send(nuevoUsuario)
-})
 app.use('/',loginRoutes);
-
 app.use('/administrador/productos',administradorProductosRoutes);
 app.use('/caja',cajaRoutes);
-app.use('/buscar',buscarProdRoutes);
+app.use('/administrador/buscar',administradorBuscarRoutes);
+app.use('/administrador/ofertas',administradorOfertasRoutes)
 
 // RENDER HOME
 app.get('/', (req, res) => {
     res.redirect('/ingresar');
 })
+
 app.get('/administrador', async (req, res) => {
 
   res.render('adminicio');
