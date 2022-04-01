@@ -1,64 +1,73 @@
 const mongoose = require('mongoose');
-const {Schema} = mongoose;
+const { Schema } = mongoose;
+const Oferta = require('./ofertas')
+
+
+
+
 const productSchema = new Schema({
-  codigo : {
+  codigo: {
     type: Number,
     required: true
   },
-    nombre : {
-      type: String,
-      required: true
-    },
-   
-    cantidad : {
-      type:Number,
-      required:true
-    },
-    marca:{
-      type:String,
-      required:true
-    },
-    categoriaInterna:{
-    
-        type:String,
-        enum:['almacen','varios','fiambreria','pañales','fideos', 'arroz','harina','no perecederos','articulos de limpieza','aceite/vinagre','sal','higene corporal','galletitas','articulos del hogar','higene femenina', 'panaderia', 'bebida con alcohol', 'bebidas sin alcohol','golosinas', 'yerba','azucar','te cafe', 'verduleria' ]
+  nombre: {
+    type: String,
+    required: true
+  },
 
-            },
-    presentacion:{
-        type: String
-    },
-    peso:{
-        type: String
-    },
-    fechaDeVencimiento:{
-        type:String
+  cantidad: {
+    type: Number,
+    required: true
+  },
+  marca: {
+    type: String,
+    required: true
+  },
+  categoriaInterna: {
 
-    },
-  
-    precioMinorista:{
-          type:Number,
-          required:true
-    },
-    precioMayorista:{
-          type:Number,
-          required:true
-      },
-    precioCosto:{
-        type:Number,
-        
-    },
-    impuestoAplicado:{
-        type:String,
-        enum:['21','8', '35']
-    },
-    cantidadDeVecesVendido:{
-      type: Number
+    type: String,
+    enum: ['almacen', 'varios', 'fiambreria', 'pañales', 'fideos', 'arroz', 'harina', 'no perecederos', 'articulos de limpieza', 'aceite/vinagre', 'sal', 'higene corporal', 'galletitas', 'articulos del hogar', 'higene femenina', 'panaderia', 'bebida con alcohol', 'bebidas sin alcohol', 'golosinas', 'yerba', 'azucar', 'te cafe', 'verduleria']
+
+  },
+  presentacion: {
+    type: String
+  },
+  peso: {
+    type: String
+  },
+  fechaDeVencimiento: {
+    type: String
+
+  },
+
+  precioMinorista: {
+    type: Number,
+    required: true
+  },
+  precioMayorista: {
+    type: Number,
+    required: true
+  },
+  precioCosto: {
+    type: Number,
+
+  },
+  impuestoAplicado: {
+    type: String,
+    enum: ['21', '8', '35']
+  },
+  cantidadDeVecesVendido: {
+    type: Number
+  },
+  ofertaVigente: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: Oferta
     }
+  ]
+})
 
-  })
-  
-  const Producto = mongoose.model('Producto', productSchema);
+const Producto = mongoose.model('Producto', productSchema);
 
 module.exports = Producto
-  
-  
+
