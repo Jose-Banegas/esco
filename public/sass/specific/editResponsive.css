@@ -1,0 +1,92 @@
+.body {
+	background-color: #ffffff;
+	color: #000;
+}
+
+.header {
+	background-color: #1B4EA3;
+	justify-content: space-around;
+}
+
+.header button {
+	margin: 1rem 0;
+	color: white;
+}
+
+.inp {
+	height: 100%;
+	min-height: 60px;
+}
+
+.bottom-cont {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background-color: #fff;
+	width: 100%;
+	border-top: solid 1px #777;
+}
+
+
+.bottom {
+		justify-content: space-around;
+		height: 4rem;
+		margin: 2rem 0;
+		background-color: #fff;
+}
+
+.bo-flex {
+
+}
+
+.h {
+	background: #CE6B00;
+	border: 2px solid #FB982E;
+	box-sizing: border-box;
+	border-radius: 10px;
+	width: 239px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 1rem 0;
+}
+
+.cerrar {
+	display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 14px 32px;
+width: 44px;
+height: 44px;
+text-decoration: none;
+	margin: 1rem 0;
+background: #FFC700;
+border-radius: 13px;
+font-size: 1.4rem;
+}
+
+
+.fl1 {
+	gap: 1rem;
+}
+
+.fl {
+	gap: 2rem;
+}
+
+.shortI {
+	width: 50px;
+}
+
+.medI {
+	width: 100px;
+}
+
+.btnPurple {
+	color: white;
+	background: #4324AA;
+border: 2.81792px solid #4324AA;
+border-radius: 12.211px;
+}

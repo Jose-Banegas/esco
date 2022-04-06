@@ -18,20 +18,34 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', catchAsync(async (req , res) => {
-    const search_query = req.body;
+  
 
-    console.log(codigo);
+    const query = req.body;
+    console.log(query);
     try {
-
-        const productos = await Producto.find({  nombre : search_query ,marca: search_query} );
-        res.json(productos);
-
+  
+        const productos = await Producto.find({
+           $or:[
+             {nombre:{$regex: query.search_query, $options : 'i'}},
+             {marca:{$regex: query.search_query, $options : 'i'}},
+  
+           ]
+             });
+  
+  
+             console.log(productos);
+             res.json(productos)
+  
     } catch (error) {
-        res.send('error')
+        res.send(error)
     }
-    // const producto = await Producto.find({codigo: codigo});
-    // console.log(producto);
-}));
+  }))
+
+
+
+
+
+
 
 
 
@@ -41,7 +55,6 @@ router.post('/', catchAsync(async (req , res) => {
 //     console.log(query)
 // res.render('stock/listado')
 // })
-
 
 
 

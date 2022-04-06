@@ -65,6 +65,8 @@ const loginRoutes = require('./routes/usuarios')
 const administradorProductosRoutes =require('./routes/administradorProductos');
 const administradorBuscarRoutes =require('./routes/administradorBuscar');
 const administradorOfertasRoutes =require('./routes/administradorOfertas');
+const busquedaNombre = require('./routes/buscarProd')
+
 
 
 
@@ -112,6 +114,7 @@ app.use('/administrador/productos',administradorProductosRoutes);
 app.use('/caja',cajaRoutes);
 app.use('/administrador/buscar',administradorBuscarRoutes);
 app.use('/administrador/ofertas',administradorOfertasRoutes)
+app.use('/buscanombre', busquedaNombre)
 
 // RENDER HOME
 app.get('/', (req, res) => {

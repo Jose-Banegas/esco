@@ -18,7 +18,7 @@ router.get('/', isLoggedIn, isAdmin(roleADM),(req,res)=>{
 })
 
 
-router.post('/', isLoggedIn, isAdmin(roleADM), async(req,res)=>{
+router.post('/', isLoggedIn, async(req,res)=>{
     const query = req.body.buscar;
     console.log(query);
     try {

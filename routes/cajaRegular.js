@@ -29,6 +29,9 @@ router.get('/cajacobro', isLoggedIn,async (req, res) => {
 
 })
 
+
+
+
 router.post('/buscar', isLoggedIn, async (req, res) => {
   try {
     const codigo = req.body.codigo;

@@ -53,26 +53,68 @@ router.get('/:id/edit',isLoggedIn, isAdmin(roleADM), catchAsync(async (req, res)
   const producto = await Producto.findById(id);
   if (!producto) {
     req.flash('error', 'No se puede encontrar la este producto');
-    return res.redirect('/administrador/productos');
 }
   res.render('stock/stockIndividual', { producto })
 }))
 
+
+
+
+
+
 // ENVIAR PUT REQUEST
+
+
+
 
 router.put('/:id',isLoggedIn,isAdmin(roleADM), catchAsync(async (req, res) => {
   const { id } = req.params;
-  const producto = await Producto.findByIdAndUpdate(id, req.body, { runValidators: true });
+  const { nombre, cantidad, marca, precioMinorista, precioMayorista, precioCosto, categoria, peso, fechaDeVencimiento} = req.body
+  const producto = await Producto.findByIdAndUpdate(id, {
+	  nombre: nombre,
+	 cantidad: cantidad,
+	  marca: marca,
+	  precioMinorista: precioMinorista,
+	  precioMayorista: precioMayorista,
+	  precioCosto: precioCosto, 
+	  categoriaInterna: categoria,
+	  peso: peso,
+	  fechaDeVencimiento: fechaDeVencimiento
+  },
+		{ runValidators: true });
+
+		
+
   if (!producto) {
     req.flash('error', 'No se puede encontrar editar el producto');
     return res.redirect('/administrador/productos');
 }
  
-  res.redirect(`/administrador/productos/${producto.id}`)
 
 }))
 
 // }
+
+
+//EDITAR STOCK INDIVIDUAL
+
+router.get('/:id/upstock', isLoggedIn,isAdmin(roleADM),catchAsync(async (req, res) => {
+  const {id} = req.params;
+	const producto = await Producto.findById(id)
+	if (!producto) {
+		
+	}
+  res.render('edit/editResponsive.ejs', {producto})
+}))
+
+router.get('/:id/upstockprecio', isLoggedIn,isAdmin(roleADM),catchAsync(async (req, res) => {
+  const {id} = req.params;
+	const producto = await Producto.findById(id)
+	if (!producto) {
+		
+	}
+  res.render('edit/editPrecio.ejs', {producto})
+}))
 
 // RENDER STOCK INDIVIDUAL
 router.get('/:id', isLoggedIn,isAdmin(roleADM),catchAsync(async (req, res) => {

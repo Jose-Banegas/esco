@@ -7,13 +7,14 @@
 			<div class="col-md-8 columI">
 
 				<div class="row">
-				<div class="utilFlex">
 				<form id="cajaCobroForm" class="headerDiv d-flex justify-content-around">
 
 					<input class="inputBuscar" id="textBuscar" type="text" placeholder="Buscar producto por código">
-					<input id="sbBuscar" type="submit" class="btnBuscar" value="Buscar">
-					</form>		<button class="btnAddMan" id="llamadorVerde">Agregar producto manualmente</button>
-</div>
+					<input id="sbBuscar" type="submit" class="btnBuscar" value="Buscar">	</form>	
+
+
+					<button id="lVerd" class="btnAddMan">Agregar producto manualmente</button>
+
 				
 							<div class="filaB row">
 
@@ -21,9 +22,9 @@
 					<table class="table table-dark table-hover mt-4 mb-4">
 						<tr>
 							<th class="thNombre">Nombre</th>
+							<th>Precio unitario</th>
+							<th>Marcas</th>
 							<th>Cantidad</th>
-<th>Precio unitario</th>
-
 							<th><b>Subtotal</b></th>
 						</tr>
 
@@ -94,8 +95,8 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="module" src="../edit.js"></script>
     <script type="module"src="../cajaCobro.js"></script>
-    <script type="module" src="../eliminarDeCaja.js"></script>
-    <script type="module" src="../agregarProducto.js"></script>
+    <script src="../eliminarDeCaja.js"></script>
+    <script src="../agregarProducto.js"></script>
 
 
 
