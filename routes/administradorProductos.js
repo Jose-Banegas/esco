@@ -69,7 +69,7 @@ router.get('/:id/edit',isLoggedIn, isAdmin(roleADM), catchAsync(async (req, res)
 
 router.put('/:id',isLoggedIn,isAdmin(roleADM), catchAsync(async (req, res) => {
   const { id } = req.params;
-  const { nombre, cantidad, marca, precioMinorista, precioMayorista, precioCosto, categoria, peso, fechaDeVencimiento} = req.body
+  const { nombre, cantidad, marca, precioMinorista, precioMayorista, precioCosto, categoria, peso, fechaDeVencimiento, impuestoAplicado} = req.body
   const producto = await Producto.findByIdAndUpdate(id, {
 	  nombre: nombre,
 	 cantidad: cantidad,
@@ -78,12 +78,13 @@ router.put('/:id',isLoggedIn,isAdmin(roleADM), catchAsync(async (req, res) => {
 	  precioMayorista: precioMayorista,
 	  precioCosto: precioCosto, 
 	  categoriaInterna: categoria,
+	  impuestoAplicado: impuestoAplicado,
+	  fechaDeVencimiento: fechaDeVencimiento,
 	  peso: peso,
 	  fechaDeVencimiento: fechaDeVencimiento
   },
 		{ runValidators: true });
-
-		
+            res.json(producto)	
 
   if (!producto) {
     req.flash('error', 'No se puede encontrar editar el producto');
@@ -92,6 +93,106 @@ router.put('/:id',isLoggedIn,isAdmin(roleADM), catchAsync(async (req, res) => {
  
 
 }))
+
+
+
+
+
+//
+
+
+// ENVIAR PUT REQUEST PRECIO
+
+
+
+
+router.put('/precmin/:id',isLoggedIn,isAdmin(roleADM), catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const {precioMinorista} = req.body
+  const producto = await Producto.findByIdAndUpdate(id, {
+	  precioMinorista: precioMinorista
+  },
+		{ runValidators: true });
+
+             res.json(producto)
+
+  if (!producto) {
+    req.flash('error', 'No se puede encontrar editar el producto');
+     res.redirect('/administrador/productos');
+}
+ 
+
+}))
+
+
+
+//
+
+
+//
+
+
+// ENVIAR PUT REQUEST PRECIO
+
+
+
+
+router.put('/precmay/:id',isLoggedIn,isAdmin(roleADM), catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const {precioMayorista} = req.body
+  const producto = await Producto.findByIdAndUpdate(id, {
+	  precioMayorista: precioMayorista
+  },
+		{ runValidators: true });
+
+             res.json(producto)
+
+  if (!producto) {
+    req.flash('error', 'No se puede encontrar editar el producto');
+    return res.redirect('/administrador/productos');
+}
+ 
+
+}))
+
+
+
+//
+
+
+
+//
+
+
+// ENVIAR PUT REQUEST PRECIO
+
+
+
+
+router.put('/preccos/:id',isLoggedIn,isAdmin(roleADM), catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const {precioCosto} = req.body
+  const producto = await Producto.findByIdAndUpdate(id, {
+	  precioCosto: precioCosto
+  },
+		{ runValidators: true });
+             res.json(producto)
+
+  if (!producto) {
+    req.flash('error', 'No se puede encontrar editar el producto');
+    return res.redirect('/administrador/productos');
+}
+ 
+
+}))
+
+
+
+//
+
+
+
+
 
 // }
 

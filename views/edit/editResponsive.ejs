@@ -2,13 +2,13 @@
 <link rel="stylesheet" href="/sass/specific/editResponsive.css">
 
 <div class="header d-flex">
-	<button class="btn btn-outline-warning">Editar precios</button>
+	<a href="/administrador/productos/<%= producto.id %>/upstockprecio" class="btnOferta btn btn-outline-warning">Editar precios</a>
 	<button class="btn btn-outline-danger">Editar oferta</button>
 </div>
 
 <div class="body">
 
-	<div class="container">
+	<div class="container contPrec formo">
 	<form action="" id="formEdit">
 	<div class="row">
 		<p id="id"><%= producto.id%></p>
@@ -23,7 +23,7 @@
 		<div class="row align-items-center mt-2">
 			<div class="col-2"><p class="ta-center">Nombre del producto</p></div>
 			<div class="col-10">
-				<input id="nombreProducto" class="w-100 h-100 inp"  value="<%= producto.nombre%>"  type="text">
+				<input id="nombreProducto" class="w-100 h-100 inp"  value="<%= producto.nombre%>"  type="text" disabled>
 			</div>
 			
 		</div>	
@@ -31,7 +31,7 @@
 		<div class="row align-items-center mt-2">
 			<div class="col-2"><p class="ta-center">Cantidad de productos</p></div>
 			<div class="col-8">
-				<input id="cantidadProducto" class="w-100 h-100 inp" value="<%= producto.cantidad%>" type="text">
+				<input id="cantidadProducto" class="w-100 h-100 inp" value="<%= producto.cantidad%>" type="text" disabled>
 			</div>
 			<div class="col-2">Ingresar solo números</div>
 		</div>	
@@ -40,26 +40,26 @@
 		<div class="row align-items-center mt-2">
 			<div class="col-2"><p class="ta-center">Marca del producto</p></div>
 			<div class="col-10">
-				<input id="marcaProducto" class="w-100 h-100 inp" value="<%= producto.marca%>" type="text">
+				<input id="marcaProducto" class="w-100 h-100 inp" value="<%= producto.marca%>" type="text" disabled>
 			</div>
 			
 		</div>	
 		<div class="row align-items-center mt-2">
 			<div class="col-2"><p class="ta-center">Precio minorista del producto</p></div>
 			<div class="col-8">
-				<input id="precioMinorista" class="w-100 h-100 inp" value="<%= producto.precioMinorista%>"  type="text">
+				<input id="precioMinorista" class="w-100 h-100 inp" value="<%= producto.precioMinorista%>"  type="text" disabled>
 			</div>
 			<div class="col-2">Ingresar solo números</div>
 		</div>			<div class="row align-items-center mt-2">
 			<div class="col-2"><p class="ta-center">Precio mayorista del producto</p></div>
 			<div class="col-8">
-				<input id="precioMayorista" class="w-100 h-100 inp" value="<%= producto.precioMayorista%>" type="text">
+				<input id="precioMayorista" class="w-100 h-100 inp" value="<%= producto.precioMayorista%>" disabled type="text">
 			</div>
 			<div class="col-2">Ingresar solo números</div>
 		</div>			<div class="row align-items-center mt-2">
 			<div class="col-2"><p class="ta-center">Precio de costo del producto</p></div>
 			<div class="col-8">
-				<input id="precioCosto" class="w-100 h-100 inp" value="<%= producto.precioCosto%>"  type="text">
+				<input id="precioCosto" class="w-100 h-100 inp" value="<%= producto.precioCosto%>" disabled type="text">
 			</div>
 			<div class="col-2">Ingresar solo números</div>
 		</div>	
@@ -67,7 +67,7 @@
 		<div class="row align-items-center mt-2">
 			<div class="col-2"><p class="ta-center">Categoría</p></div>
 			<div class="col-10">
-			 <select class="form-select" name="categoriaInterna" id="categoriaInterna" aria-label="Categoria de gondola">
+			 <select class="form-select" name="categoriaInterna" id="categoriaInterna" disabled aria-label="Categoria de gondola">
                 <option selected value="<%= producto.categoriaInterna%>"><%= producto.categoriaInterna%></option>
                 <option value="varios">VARIOS</option>
 
@@ -103,14 +103,19 @@
 
 		</div>
 		
-		<div id="hide">
 			
+  <a class="btn btn-primary mt-4 mb-4" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Mostrar opciones no obligatorias
+  </a>
+
+<div class="collapse" id="collapseExample">
+
 
 
 				<div class="row align-items-center mt-2">
 			<div class="col-2"><p class="ta-center">Peso en Kilogramos o Gramos</p></div>
 			<div class="col-8">
-				<input id="peso" class="w-100 h-100 inp" value="<%= producto.peso%>"  type="text">
+				<input id="peso" class="w-100 h-100 inp" value="<%= producto.peso%>" disabled type="text">
 			</div>
 			<div class="col-2">Ingresar solo números</div>
 		</div>	
@@ -119,7 +124,7 @@
 	<div class="row align-items-center mt-2">
 			<div class="col-2"><p class="ta-center">Fecha de vencimiento</p></div>
 			<div class="col-8">
-				<input id="fechaDeVencimiento" class="w-100 h-100 inp" value="<%= producto.fechaDeVencimiento%>"  type="text">
+				<input id="fechaDeVencimiento" disabled class="w-100 h-100 inp" value="<%= producto.fechaDeVencimiento%>"  type="text">
 			</div>
 			<div class="col-2">Ingresar solo números</div>
 		</div>	
@@ -128,7 +133,8 @@
 	<div class="row align-items-center mt-2">
 			<div class="col-2"><p class="ta-center">Precio de costo del producto</p></div>
 			<div class="col-8">
-				<select id="impuesto" class="w-100 h-100 inp">
+				<select id="impuesto" disabled class="w-100 h-100 inp">
+					<option selected value="<%= producto.impuestoAplicado %>">Elige</option>
 					<option value="21">21%</option>
 					<option value="8">8%</option>
 					<option value="35">35%</option>
@@ -143,9 +149,16 @@
 
 
 
+
+
+
+
+</div>
+
+
+
 		</div>
 
-		</div>	
 
 	</div>
 </div>
@@ -153,7 +166,7 @@
 <div class="bottom-cont">
 <div class="bottom w-100 d-flex">
 
-<button id="mostrar" class="btn btn-primary btn-lg">Mostrar opciones no obligatorias</button>
+
 <button class="btn btn-success btn-lg">Editar</button>
 </div>
 
