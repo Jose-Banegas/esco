@@ -2,7 +2,7 @@ import {iniciar} from "./edit.js";
 import {agregarArriba} from "./agregarProducto.js"
 import {arrEliminar} from './eliminarDeCaja.js'
 //Elementos
-const textBuscar = document.getElementById("textBuscar");
+export const textBuscar = document.getElementById("textBuscar");
 const cajaCobroForm = document.getElementById("cajaCobroForm");
 const sbBuscar = document.getElementById("sbBuscar");
 const tablaCajaCobro = document.getElementById("tablaCajaCobro");
@@ -17,8 +17,8 @@ const eliminarProductos = document.getElementById("eliminarProductos");
 const agregarProducto = document.getElementById("agregarProducto");
 const finalizarCompra = document.getElementById("finalizarCompra");
 const bBody = document.getElementsByTagName("body")
-
-body.classList.add("body")
+bBody[0].classList.add("body")
+textBuscar.focus()
 //Variables globales
 
 export let productosAgregados = [{nombre: "vacio", precio: 0, cantidadAgregada: 1, impuestoPrecio: 0, borrado: false}];
@@ -78,8 +78,7 @@ export const importar = () => {
 				fila[0].children[3].innerHTML = prod.cantidadAgregada * prod.impuestoPrecio;
 				fila[0].style.display = "table-row"
 				sumaConImpuesto()
-				console.log
-
+		textBuscar.focus()	
 
 			}
 
@@ -164,7 +163,7 @@ export const importar = () => {
 				yaNo = false;
 					divPrecio.innerHTML = productosAgregados[tr.classList].impuestoPrecio
 				divPrecio.style.border = "none"
-
+	textBuscar.focus()
 				
 			})
 
@@ -386,6 +385,7 @@ cancelarCompra.onclick = () => {
 	vueltoGlobal = 0;
 	dineroIngresado.value = "";
 	vuelto.innerHTML = "$"
+	textBuscar.focus()
 	
 }
 
@@ -396,10 +396,12 @@ finalizarCompra.onclick = () => {
 
 	if(productosAgregados.length < 2) {
 		alert("No agregaste productos")
+		textBuscar.focus()
 		return
 	}
 	if (vueltoGlobal == undefined || vueltoGlobal < 0) {
 		alert("monto ingresado invalido")
+		textBuscar.focus()
 		return
 	}
 	
@@ -421,7 +423,7 @@ const stringValorDelProducto = () => {
 			
 		
 	}})
-
+	textBuscar.focus()
 	return stringBase;
 
 
@@ -442,6 +444,7 @@ const stringValorDelProducto = () => {
 	console.log(venta)
 	console.log("LO QUE DICE LA PROPIEDAD valorDelProducto EN EL OBJETO:")
 	console.log(venta.valorDelProducto)
+textBuscar.focus()
 
 
 

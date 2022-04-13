@@ -1,3 +1,4 @@
+import {textBuscar} from './cajaCobro.js'
 const llamadorAgregarProducto = document.getElementById("agregarProducto");
 const form = document.getElementById("cajaCobroForm")
 const bloqueador = document.createElement("div");
@@ -71,7 +72,7 @@ btnAgregar.classList.add("btnAgregar")
 container.appendChild(btnCancelar)
 
 container.appendChild(btnAgregar)
-
+input.focus()
 	const funcion = () => {
 //	alert("Acá se va a desplegar el modal agregarProduto, que ya está escrito.")
 	
@@ -126,6 +127,7 @@ btnAgregar.onclick = () => {
 	console.log(tabla.children[1].innerHTML = "")
 	 arrProductos = []
 	agregarArriba = []
+	textBuscar.focus()
 
 }
 
@@ -205,6 +207,7 @@ btnCancelar.onclick = () => {
 	 arrProductos = []
 	agregarArriba = []
 	bodyDoc[0].removeChild(bloqueador)
+	textBuscar.focus()
 
 
 }

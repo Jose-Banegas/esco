@@ -9,7 +9,7 @@
 
     <div class="row mx-lg-5">
     <div class="col-12 ">
-      <form class="mb-3" action="/administrador/productos" method="post">
+      <form id="formStock" class="mb-3" action="/administrador/productos" method="post">
         
         <div class="mb-3 d-flex">
             <label for="codigo" class="campo-requerido form-label">Codigo de barra del producto</label>
@@ -27,44 +27,44 @@
         
          
           <div class="mb-3 d-flex">
-            <label for="cantidad" class="campo-requerido form-label">Cantidad de productos </label>
+            <label for="cantidad" class="form-label">Cantidad de productos </label>
             <span class="input-group-text"><img src="/imgs/svg/stock.svg" alt=""></span>
 
-            <input  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="number" name="cantidad" class="form-control" id="cantidad" placeholder="Ingresar la cantidad de producto" required>
+            <input  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="number" name="cantidad" class="form-control" id="cantidad" placeholder="Ingresar la cantidad de producto">
             <div  class="form-text text-center">Ingresar solo Números</div>
 
           </div>
        
           <div class="mb-3 d-flex">
-            <label for="marca" class="campo-requerido form-label">Marca del producto </label>
+            <label for="marca" class="form-label">Marca del producto </label>
             <span class="input-group-text"><img src="/imgs/svg/marcaprod.svg" alt=""></span>
 
-            <input type="text" name="marca" class="form-control" id="marca" placeholder="Ingresar la marca para del producto" required>
+            <input type="text" name="marca" class="form-control" id="marca" placeholder="Ingresar la marca para del producto">
           </div>
         
           <div class="mb-3 d-flex">
-            <label for="precioMinorista" class="campo-requerido form-label">Precio minorista del producto </label>
+            <label for="precioMinorista" class="form-label">Precio minorista del producto </label>
             <span class="input-group-text"><img src="/imgs/svg/precioicon.svg" alt=""></span>
 
-            <input  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="number" name="precioMinorista" class="form-control" id="precioMinorista" placeholder="Ingresar el precio minorista del producto" required>
+            <input  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="number" name="precioMinorista" class="form-control" id="precioMinorista" placeholder="Ingresar el precio minorista del producto">
             <div  class="form-text text-center">Ingresar solo Números</div>
 
           </div>
     
           <div class="mb-3 d-flex">
-            <label for="precioMayorista" class="campo-requerido form-label">Precio mayorista del producto </label>
+            <label for="precioMayorista" class="form-label">Precio mayorista del producto </label>
             <span class="input-group-text"><img src="/imgs/svg/precioicon.svg" alt=""></span>
 
-            <input  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="number" name="precioMayorista" class="form-control" id="precioMayorista" placeholder="Ingresar el precio mayorista del producto" required>
+            <input  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="number" name="precioMayorista" class="form-control" id="precioMayorista" placeholder="Ingresar el precio mayorista del producto">
             <div  class="form-text text-center">Ingresar solo Números</div>
 
           </div>
     
           <div class="mb-3 d-flex">
-            <label for="precioCosto" class="campo-requerido form-label">Precio costo del producto </label>
+            <label for="precioCosto" class="form-label">Precio costo del producto </label>
             <span class="input-group-text"><img src="/imgs/svg/precioicon.svg" alt=""></span>
 
-            <input  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="number" name="precioCosto" class="form-control" id="precioCosto" placeholder="Ingresar el precio costo del producto" required>
+            <input  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="number" name="precioCosto" class="form-control" id="precioCosto" placeholder="Ingresar el precio costo del producto">
             <div  class="form-text text-center">Ingresar solo Números</div>
 
           </div>
@@ -86,7 +86,7 @@
           </div>
     
           <div class="mb-3 d-flex">
-            <label for="categoriaInterna" class="campo-requerido form-label">Categoria interna de gondola </label>
+            <label for="categoriaInterna" class="form-label">Categoria interna de gondola </label>
             <span class="input-group-text"><img src="/imgs/svg/gondola.svg" alt=""></span>
 
             <select class="form-select" name="categoriaInterna" id="categoriaInterna" aria-label="Categoria de gondola">
@@ -141,14 +141,14 @@
                 <span class="input-group-text"><img src="/imgs/svg/impuesto.svg" alt=""></span>
 
                 <select class="form-select" name="impuestoAplicado" id="impuestoAplicado" aria-label="Impuesto del producto" >
-                    <option selected value="00">Abrir el menu para elegir el impuesto</option>
-                    <option value="8">8%</option>
+                    <option selected value="0">0%</option>
+		    <option value="8">8%</option>
                     <option value="21">21%</option>
                     <option value="35">35%</option>
                   </select>      
                     </div>
           </div>
-        <button class="btn btn-success d-flex px-5 type="submit">Cargar</button>
+        <button id="btnCargaStock" class="btn btn-success d-flex px-5" type="submit">Cargar</button>
     </form>
 
     </div>
@@ -174,6 +174,6 @@
   </div>
     
 </div>
-    
+<script src="../../cargaStock.js"></script>    
 <%- include('../partials/footer.ejs'); %>
 

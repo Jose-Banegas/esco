@@ -16,7 +16,7 @@ const peso = document.getElementById("peso")
 const fechaDeVencimiento = document.getElementById("fechaDeVencimiento")
 const impuesto = document.getElementById("impuesto")
 let disabled = true;
-
+const editGuar = document.getElementById("editGuar")
 
 
 
@@ -69,7 +69,8 @@ form.addEventListener("submit", async e => {
 		peso.disabled = false;
 		fechaDeVencimiento.disabled = false;
 		impuesto.disabled = false
-		disabled = false;	
+		disabled = false;
+		editGuar.innerHTML = "Guardar cambios"
 		return
 	}
 	try {
@@ -82,6 +83,7 @@ form.addEventListener("submit", async e => {
 		peso.disabled = true;
 		impuesto.disabled = true
 		disabled = true;
+		editGuar.innerHTML = "Editar"
 		const send =  await axios.put(`/administrador/productos/${id.textContent}`, {codigo: codigo.value, nombre: nombre.value, cantidad: cantidad.value, marca: marca.value, precioMinorista: precioMinorista.value, precioMayorista: precioMayorista.value, precioCosto: precioCosto.value, categoria: categoriaInterna.value, peso: peso.value, fechaDeVencimiento: fechaDeVencimiento.value, impuestoAplicado: impuesto.value})
 		
 

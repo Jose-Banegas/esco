@@ -54,7 +54,7 @@ const productSchema = new Schema({
   },
   impuestoAplicado: {
     type: String,
-    enum: ['21', '8', '35']
+    enum: ['0', '21', '8', '35']
   },
   cantidadDeVecesVendido: {
     type: Number

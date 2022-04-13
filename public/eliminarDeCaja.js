@@ -1,5 +1,5 @@
 //creacion de elementos dom
-import {productosAgregados} from './cajaCobro.js'
+import {productosAgregados, textBuscar} from './cajaCobro.js'
 import {eliminar} from './cajaCobro.js'
 const btnBorrar = document.getElementById("eliminarProductos");
 const bodyCaja = document.getElementsByTagName("body")
@@ -55,13 +55,14 @@ guiBorrar.appendChild(bForm)
 xGui.classList.add("salir")
 xGui.style.cursor = "pointer";
 
-
+searchBar.focus()
 xGui.onclick = () => {
 	bodyCaja[0].removeChild(blocker)
 }
 
 btnCancel.onclick = () => {
 	bodyCaja[0].removeChild(blocker)
+	textBuscar.focus()
 }
 
 
@@ -78,6 +79,7 @@ btnSubmitDel.onclick = () => {
 	eliminar()
 	uGui.innerHTML = ""
 	arrEliminar = []
+	textBuscar.focus()
 	//script submit
 }
 
