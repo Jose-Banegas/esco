@@ -10,7 +10,7 @@ const passport = require('passport');
 // crear usuario
  router.get('/registro', catchAsync(async (req, res) => {
   const user = new User({ funcion: 'CAJA', username: 'caja' })
-  // const nuevoUser = await User.register(user, '123456')
+  const nuevoUser = await User.register(user, '123456')
   console.log(user)
   
   res.send('registrado')
