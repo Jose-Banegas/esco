@@ -14,9 +14,9 @@
         <div class="mb-3 d-flex">
             <label for="codigo" class="campo-requerido form-label">Codigo de barra del producto</label>
             <span class="input-group-text">|||||||</span>
-            <input  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="number" name="codigo" class="form-control" id="codigo" autofocus placeholder="Ingresar el codigo de barra del producto" required>
-            <div  class="form-text text-center">Ingresar solo Números</div>
-
+            <input  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="number" name="codigo" class="form-control codigoProducto" id="codigo" autofocus placeholder="Ingresar el codigo de barra del producto" required>
+            <div  class="form-text text-center mx-2">Ingresar solo Números</div>
+		<button id="switchCodigo" class="btn btn-primary mx-2">Generar nuevo código de barras</button>
           </div>
         <div class="mb-3 d-flex">
             <label for="nombre" class="campo-requerido form-label">Nombre del producto</label>
@@ -153,27 +153,13 @@
 
     </div>
 
-    
+ 
 
-    <div style='text-align: center;'>
-      <!-- insert your custom barcode setting your data in the GET parameter "data" -->
-      <img alt='Barcode Generator TEC-IT'
-           src='https://barcode.tec-it.com/barcode.ashx?data=uyygyuiygiugyy6&code=&translate-esc=true'/>
-    </div>
-    <div style='padding-top:8px; text-align:center; font-size:15px; font-family: Source Sans Pro, Arial, sans-serif;'>
-      <!-- back-linking to www.tec-it.com is required -->
-      <a href='https://www.tec-it.com' title='Barcode Software by TEC-IT' target='_blank'>
-        TEC-IT Barcode Generator<br/>
-        <!-- logos are optional -->
-        <img alt='TEC-IT Barcode Software' border='0'
-             src='http://www.tec-it.com/pics/banner/web/TEC-IT_Logo_75x75.gif'>
-      </a>
-    </div>
-    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-  </div>
-    
-</div>
 <script src="../../cargaStock.js"></script>    
+<script src="../../jsBarcode.min.js"></script>    
+<script src="../../ktCode.js"></script>    
+
 <%- include('../partials/footer.ejs'); %>
 

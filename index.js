@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3010;
+const port = 3019;
 const mongoose = require('mongoose');
 
 const HID = require('node-hid');
@@ -66,7 +66,7 @@ const administradorProductosRoutes =require('./routes/administradorProductos');
 const administradorBuscarRoutes =require('./routes/administradorBuscar');
 const administradorOfertasRoutes =require('./routes/administradorOfertas');
 const busquedaNombre = require('./routes/buscarProd')
-
+const codigoBarra = require('./routes/codigoBarra')
 
 
 
@@ -115,7 +115,7 @@ app.use('/caja',cajaRoutes);
 app.use('/administrador/buscar',administradorBuscarRoutes);
 app.use('/administrador/ofertas',administradorOfertasRoutes)
 app.use('/buscanombre', busquedaNombre)
-
+app.use('/codigobarra', codigoBarra)
 // RENDER HOME
 app.get('/', (req, res) => {
     res.redirect('/ingresar');
