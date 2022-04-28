@@ -542,9 +542,6 @@ divPrecioCosto.appendChild(pPrecioCosto)
 
 pestañaCompleta.appendChild(divPrecioCosto);
 
-llamador.onclick = () => {
-	alert("Este modal será movido, aún así, se pueden editar precios para cada compra haciendo click en el precio unitario, en la tabla. Es un cambio que no afecta a la base.")
-}
 
 
 //CATEGORIA

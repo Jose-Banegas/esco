@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3019;
+const port = 3011;
 const mongoose = require('mongoose');
 
 const HID = require('node-hid');
@@ -61,6 +61,7 @@ const sessionConfig = {
 app.use(session(sessionConfig)); 
 
 const cajaRoutes= require('./routes/cajaRegular')
+const admCaja = require('./routes/cajaAdministrador')
 const loginRoutes = require('./routes/usuarios')
 const administradorProductosRoutes =require('./routes/administradorProductos');
 const administradorBuscarRoutes =require('./routes/administradorBuscar');
@@ -112,6 +113,7 @@ app.use((req, res, next) => {
 app.use('/',loginRoutes);
 app.use('/administrador/productos',administradorProductosRoutes);
 app.use('/caja',cajaRoutes);
+app.use('/administrador/caja', admCaja)
 app.use('/administrador/buscar',administradorBuscarRoutes);
 app.use('/administrador/ofertas',administradorOfertasRoutes)
 app.use('/buscanombre', busquedaNombre)

@@ -54,6 +54,28 @@ router.post('/', isLoggedIn, async(req,res)=>{
   })
   
   
+router.post('/mixto', isLoggedIn, async(req,res)=>{
+    const query = req.body.buscar;
+    console.log(query);
+    try {
+  
+        const productos = await Producto.find({
+           $or:[
+             {nombre:{$regex: query}},
+             {marca:{$regex: query}},
+	     {codigo:{$regex: query}}	   
+  
+           ]
+             });
+  
+  
+             console.log(productos);
+             res.json(productos)
+  
+    } catch (error) {
+        res.send('error')
+    }
+  })
 
 
 

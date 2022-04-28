@@ -194,8 +194,6 @@ row2.addEventListener("submit", async e => {
 		tr.appendChild(tdPrec)
 		tr.appendChild(tdCant)
 		tb.appendChild(tr)
-		
-
 	} catch (error){
 		console.log(error)
 	}

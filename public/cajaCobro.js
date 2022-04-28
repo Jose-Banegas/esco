@@ -66,10 +66,13 @@ export const importar = () => {
 			impuestoPrecio: importando.impuestoPrecio,
 			borrado: false
 		}
-
+		
 		let check = false;
 		const tr = document.createElement("tr");
+		sumarConImpuesto()
 		productosAgregados.map(prod => {
+			
+		sumarConImpuesto()
 			if (prod.nombre == aAg.nombre || (prod.nombre == aAg.nombre && prod.borrado == true )) {
 				check = true;
 				prod.cantidadAgregada = prod.cantidadAgregada + 1;
@@ -77,7 +80,7 @@ export const importar = () => {
 				fila[0].children[1].innerHTML = prod.cantidadAgregada;
 				fila[0].children[3].innerHTML = prod.cantidadAgregada * prod.impuestoPrecio;
 				fila[0].style.display = "table-row"
-				sumaConImpuesto()
+				sumarConImpuesto()
 		textBuscar.focus()	
 
 			}
@@ -92,6 +95,7 @@ export const importar = () => {
 		
 		if (check == false) {
 		productosAgregados.push(aAg);
+		sumarConImpuesto()	
 		
 		const tdNombre = document.createElement("td")
 		const tdPrecio = document.createElement("td")
